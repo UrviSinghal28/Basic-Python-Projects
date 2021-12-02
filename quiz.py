@@ -1,6 +1,6 @@
 quizBegin=input('Are you ready for the quiz?\n')
 
-if quizBegin.lower()!='yes':
+if quizBegin.lower() not in (['yes','y']):
     quit()
 
 print("To quit the game at any moment just type 'quit' as the answer to any question")
