@@ -1,8 +1,7 @@
 import random
 
-print('Lets play a game of rock, paper and scissors!\n')
-
-
+playerWins=0
+computerWins=0
 
 def game(computer, playerChoice):
     if computer == playerChoice:
@@ -35,16 +34,32 @@ elif randomNumber == 2:
 elif randomNumber == 3:
     computer = "s"
 
-print("Computer's turn: Rock(r), Paper(p) or Scissor(s)?")
-playerChoice = input(
-    "Your turn: Rock(r), Paper(p) or Scissor(s)?\nYou chose: ")
-print("Computer chose:", str(computer))
+print('Lets play a game of rock, paper and scissors!\n')
 
-gameWin = game(computer, playerChoice)
+while True:
+    start=input("Type 'y' to continue and 'q' to quit:\n").lower()
+    if start=='q':
+        break
+    elif start not in (['y','q']):
+        continue
+    else:
+        print("Computer's turn: Rock(r), Paper(p) or Scissor(s)?")
+        playerChoice = input("Your turn: Rock(r), Paper(p) or Scissor(s)?\nYou chose: ")
+        print("Computer chose:", str(computer))
 
-if gameWin == None:
-    print("The game is a tie\n")
-elif gameWin:
-    print("You win\n")
-else:
-    print("You lose\n")
+        gameWin = game(computer, playerChoice)
+
+        if gameWin == None:
+            print("The game is a tie\n")
+        elif gameWin:
+            print("You win\n")
+            playerWins+=1
+        else:
+            print("You lose\n")
+            computerWins+=1
+    
+
+print("you won", playerWins, "times")
+print("Computer won", computerWins, "times")
+print('Thank you for playing!')
+
